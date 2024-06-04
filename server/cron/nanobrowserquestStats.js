@@ -9,7 +9,7 @@ const {
   EXPIRE_1H,
 } = require("../constants");
 
-const { NBQ_REDIS_DB_INDEX } = process.env;
+const { REDIS_DB_INDEX_NBQ } = process.env;
 
 const getNanoBrowserQuestPlayers = async () => {
   const playerCount = await redisClient.get("total_players");
@@ -17,7 +17,7 @@ const getNanoBrowserQuestPlayers = async () => {
 };
 
 const getNanoBrowserQuestLeaderboard = async () => {
-  await redisClient.select(NBQ_REDIS_DB_INDEX);
+  await redisClient.select(REDIS_DB_INDEX_NBQ);
 
   async function scanAllKeys(pattern = "*") {
     let cursor = 0; // Initialize cursor as a number

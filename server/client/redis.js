@@ -1,23 +1,24 @@
+const { Socket } = require("dgram");
 const { createClient } = require("redis");
 const {
-  DEV_REDIS_PORT,
-  PROD_REDIS_PORT,
   REDIS_HOST,
+  REDIS_PORT,
   REDIS_USERNAME,
   REDIS_PASSWORD,
-  NL_REDIS_DB_INDEX,
-  NBQ_REDIS_DB_INDEX,
+  REDIS_DB_INDEX_NBQ,
   NODE_ENV,
 } = process.env;
 
 let redisClient = null;
 async function connectRedisInstance() {
   const REDIS_OPTIONS = {
-    ...(NODE_ENV === "development" ? { port: DEV_REDIS_PORT } : { port: PROD_REDIS_PORT }),
-    host: REDIS_HOST,
-    username: REDIS_USERNAME,
-    database: Number(NBQ_REDIS_DB_INDEX),
-    ...(NODE_ENV !== "development" && REDIS_PASSWORD ? { password: REDIS_PASSWORD } : {}),
+    ...(REDIS_USERNAME ? { username: REDIS_USERNAME } : {}),
+    ...(REDIS_PASSWORD ? { password: REDIS_PASSWORD } : {}),
+    socket: {
+      host: REDIS_HOST,
+      port: REDIS_PORT,
+    },
+    database: Number(REDIS_DB_INDEX_NBQ),
   };
 
   console.log("~~~~REDIS_OPTIONS", REDIS_OPTIONS);

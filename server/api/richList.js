@@ -4,7 +4,7 @@ const { REDIS_RICH_LIST } = require("../constants");
 
 const PER_PAGE = 25;
 
-const { NL_REDIS_DB_INDEX } = process.env;
+const { REDIS_DB_INDEX_NL } = process.env;
 
 const getTotal = async () => {
   const total = await redisClient.zCard(REDIS_RICH_LIST);
@@ -15,7 +15,7 @@ const getTotal = async () => {
 
 const getRichListPage = async (page = 1) =>
   new Promise(async resolve => {
-    await redisClient.select(NL_REDIS_DB_INDEX);
+    await redisClient.select(REDIS_DB_INDEX_NL);
     const offset = (page - 1) * PER_PAGE;
     const total = await getTotal();
 
