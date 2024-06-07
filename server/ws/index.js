@@ -19,7 +19,7 @@ let accumulatedLargeTransactionHashes = [];
 
 // https://github.com/cryptocode/nano-websocket-sample-nodejs/blob/master/index.js
 const ws = new WsReconnect({ reconnectDelay: 5000 });
-ws.open(`wss://www.blocklattice.io/ws:${process.env.WS_PORT}`);
+ws.open(`wss://www.blocklattice.io/ws`);
 ws.on("open", () => {
   console.log("WS OPENED");
   const subscription = {
