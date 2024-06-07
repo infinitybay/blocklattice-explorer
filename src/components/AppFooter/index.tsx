@@ -22,6 +22,7 @@ const AppFooter: React.FC = () => {
   return (
     <Footer style={{ textAlign: "center" }}>
       <div>
+        Based on&nbsp;
         <a
           href="https://github.com/running-coder/nanolooker"
           rel="noopener noreferrer"
