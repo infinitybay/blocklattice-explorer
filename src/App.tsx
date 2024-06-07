@@ -56,7 +56,7 @@ const App: React.FC = () => {
     >
       <Helmet>
         <html lang={i18next.language} />
-        <title>Blocklattice {t("common.blockExplorer")}</title>
+        <title>Blocklattice Explorer</title>
         <meta name="description" content="Block explorer of the Nano cryptocurrency" />
         <meta name="theme-color" content={themeContext === Theme.DARK ? "#131313" : "#eff2f5"} />
       </Helmet>
