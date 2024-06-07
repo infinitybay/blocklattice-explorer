@@ -192,13 +192,6 @@ const HomePage = () => {
                   tooltip={t<string>("tooltips.circulatingSupply")}
                   value={new BigNumber(availableSupply).toNumber()}
                 />
-                <LoadingStatistic
-                  isLoading={isNodeStatusLoading}
-                  tooltip={t<string>("tooltips.ledgerSize")}
-                  title={t("pages.home.ledgerSize")}
-                  suffix={formattedLedgerSize.suffix}
-                  value={new BigNumber(formattedLedgerSize.value).toFormat(2)}
-                />
               </Col>
               <Col xs={24} sm={12}>
                 <LoadingStatistic

@@ -73,22 +73,6 @@ const Node: React.FC = () => {
         isLoading={!node_vendor}
         style={{ opacity }}
       />
-      <LoadingStatistic
-        title={t("pages.status.cpuUsage")}
-        value={new BigNumber(cpu).decimalPlaces(2).toNumber()}
-        suffix="%"
-        isLoading={isNodeStatusLoading}
-        style={{ opacity }}
-      />
-      <LoadingStatistic
-        title={t("pages.status.memory")}
-        value={`${new BigNumber(formattedMemory.value).toFormat(2)} / ${new BigNumber(
-          formattedTotal.value,
-        ).toFormat(2)}`}
-        suffix={formattedTotal.suffix}
-        isLoading={isNodeStatusLoading}
-        style={{ opacity }}
-      />
     </Card>
   );
 };

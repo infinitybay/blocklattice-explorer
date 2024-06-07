@@ -39,14 +39,6 @@ const Ledger: React.FC = () => {
         value={frontierCount}
         isLoading={!frontierCount}
       />
-
-      <LoadingStatistic
-        title={t("pages.status.ledgerSize")}
-        tooltip={t<string>("tooltips.ledgerSize")}
-        value={new BigNumber(formattedLedgerSize.value).toFormat(2)}
-        suffix={formattedLedgerSize.suffix}
-        isLoading={isNodeStatusLoading}
-      />
     </Card>
   );
 };
