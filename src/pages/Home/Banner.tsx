@@ -110,26 +110,6 @@ const Banner: React.FC = () => {
           </div>
         </Button> */}
 
-        <Link to={"/nanobrowserquest"}>
-          <Button
-            ghost
-            style={{ padding: "0 10px" }}
-            onClick={() => {
-              Tracker.ga4?.gtag("event", "NanoBrowserQuest");
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                alt="Go to NanoBrowserQuest"
-                src={`/nanobrowserquest.png`}
-                height="16px"
-                style={{ marginRight: "6px" }}
-              />
-              NanoBrowserQuest
-            </div>
-          </Button>
-        </Link>
-
         {/* <Link to={"/nanoquakejs"}>
           <Button ghost>
             <img
