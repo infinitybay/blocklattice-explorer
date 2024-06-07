@@ -74,7 +74,6 @@ const App: React.FC = () => {
             <Route exact path="/developer-fund" component={DeveloperFundPage} />
             <Route path="/developer-fund/transactions" component={DeveloperFundTransactionsPage} />
             <Route path="/known-accounts" component={KnownAccountsPage} />
-            <Route path="/exchange-tracker" component={ExchangeTrackerPage} />
             <Route path="/faucets" component={FaucetsPage} />
             <Route path="/large-transactions/:sortBy?" component={LargeTransactionsPage} />
             <Route path="/account/:account?/:section?" component={AccountPage} />
