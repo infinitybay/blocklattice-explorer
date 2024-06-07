@@ -154,7 +154,7 @@ const useSocket = ({ account }: { account?: string }) => {
     isForcedClosed = false;
     setIsConnected(false);
 
-    ws = new WebSocket(websocketDomain || "wss://www.nanolooker.com/ws");
+    ws = new WebSocket(websocketDomain || "wss://www.blocklattice.io/ws");
 
     ws.onopen = () => {
       clearInterval(pingInterval);

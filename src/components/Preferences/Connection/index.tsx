@@ -120,7 +120,7 @@ const ConnectionPreferences: React.FC<Props> = ({ isDetailed }) => {
                           {...field}
                           type="text"
                           style={{ width: "400px", maxWidth: "100%" }}
-                          placeholder={`wss://www.nanolooker.com/ws`}
+                          placeholder={`wss://www.blocklattice.io/ws`}
                           maxLength={255}
                           suffix={
                             getValues("websocketDomain") && !errors?.websocketDomain ? (
