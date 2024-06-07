@@ -24,7 +24,6 @@ import BlockPage from "pages/Block";
 import BookmarksPage from "pages/Bookmarks";
 import DeveloperFundPage from "pages/DeveloperFund";
 import DeveloperFundTransactionsPage from "pages/DeveloperFund/Transactions";
-import DistributionPage from "pages/Distribution";
 import ExchangeTrackerPage from "pages/ExchangeTracker";
 import FaucetsPage from "pages/Faucets";
 import HomePage from "pages/Home";
@@ -75,7 +74,6 @@ const App: React.FC = () => {
             <Route exact path="/developer-fund" component={DeveloperFundPage} />
             <Route path="/developer-fund/transactions" component={DeveloperFundTransactionsPage} />
             <Route path="/known-accounts" component={KnownAccountsPage} />
-            <Route path="/distribution" component={DistributionPage} />
             <Route path="/exchange-tracker" component={ExchangeTrackerPage} />
             <Route path="/faucets" component={FaucetsPage} />
             <Route path="/large-transactions/:sortBy?" component={LargeTransactionsPage} />
