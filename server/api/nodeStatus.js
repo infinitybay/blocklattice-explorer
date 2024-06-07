@@ -1,7 +1,7 @@
-const fs = require("fs");
+/*const fs = require("fs");
 const os = require("os");
 const find = require("find-process");
-const pidusage = require("pidusage");
+const pidusage = require("pidusage");*/
 const { nodeCache } = require("../client/cache");
 const { Sentry } = require("../sentry");
 const { NODE_STATUS, EXPIRE_1M } = require("../constants");
@@ -11,7 +11,7 @@ const getNodeStatus = async () => {
 
   if (!nodeStatus) {
     try {
-      const [{ pid }] = await find("name", "nano_node");
+      /*const [{ pid }] = await find("name", "nano_node");
 
       if (!pid) return { nodeStatus: {} };
 
@@ -29,6 +29,20 @@ const getNodeStatus = async () => {
           cpu,
           memory,
           elapsed,
+        },
+      };*/
+
+      nodeStatus = {
+        memory: {
+          free: 0,
+          total: 0,
+        },
+        cpu: 0,
+        ledgerSize: 0,
+        nodeStats: {
+          cpu: 0,
+          memory: 0,
+          elapsed: 0,
         },
       };
 
