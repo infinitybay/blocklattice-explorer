@@ -14,10 +14,12 @@ function isConnected() {
 async function connect() {
   try {
     await client.connect();
-    console.log("Connected to MongoDB server");
+    console.log(`Connected to MongoDB server at ${MONGO_URL}`);
 
     // await createIndexes();
   } catch (err) {
+    console.err("Failed to connect to MongoDB server");
+    console.err(err);
     Sentry.captureException(err, { extra: { message: "Failed to connect to MongoDB server" } });
   }
 }
