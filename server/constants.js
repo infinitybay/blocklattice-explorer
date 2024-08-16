@@ -62,7 +62,7 @@ const MONGO_HOST = process.env.MONGO_HOST;
 const MONGO_USER = process.env.MONGO_USER;
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
 const MONGO_URL =
-  process.env.NODE_ENV !== "development" && MONGO_USER
+  MONGO_USER
     ? `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}:27017`
     : `mongodb://${MONGO_HOST}:27017`;
 const MONGO_DB = "nanolooker";
