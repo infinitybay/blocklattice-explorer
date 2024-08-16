@@ -3,22 +3,8 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "plugins": ["@typescript-eslint"],
   "rules": {
-    "simple-import-sort/imports": [
-      "error",
-      {
-        "groups": [
-          ["^\\u0000"],
-          ["^react"],
-          ["^@?\\w"],
-          ["^"],
-          ["^api|components|i18n|pages|types"],
-          ["^\\."],
-          ["^.+\\u0000$"]
-        ]
-      }
-    ],
     "import/order": "off",
     "no-restricted-imports": [
       "error",
