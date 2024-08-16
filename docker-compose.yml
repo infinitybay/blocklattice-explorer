@@ -1,21 +1,20 @@
-version: "3"
-
 services:
-  nano-node:
-    image: nanocurrency/nano
-    container_name: nano-node
-    hostname: nano-node
+
+  blocklattice_mongo:
+    image: mongo:latest
+    container_name: blocklattice_mongo
+    restart: unless-stopped
     environment:
-      - TERM=xterm
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    ports:
+       - 27017:27017
+    volumes: #mongo:latest writes with root and removal is only possible root access
+      - ./blocklattice_mongo:/data/db
+
+  blocklattice_redis:
+    image: redis:latest
+    container_name: blocklattice_redis
     restart: unless-stopped
     ports:
-      - "7075:7075"
-      - "::1:7076:7076"
-      - "7078:7078"
-    volumes:
-      - /nano:/root
-
-networks:
-  default:
-    external:
-      name: nano-node-network
+      - 6379:6379
