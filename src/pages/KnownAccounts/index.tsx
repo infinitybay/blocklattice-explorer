@@ -51,7 +51,7 @@ const KnownAccountsPage: React.FC = () => {
                 <Input
                   // @ts-ignore
                   ref={inputRef}
-                  placeholder={t<string>("common.searchAlias")}
+                  placeholder={t("common.searchAlias")}
                   value={selectedKeys[0]}
                   onChange={({ target: { value } }) => {
                     setSelectedKeys([value]);

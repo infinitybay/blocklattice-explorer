@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { ApartmentOutlined, CalendarOutlined, DatabaseOutlined } from "@ant-design/icons";
 import { Col, Layout, Menu, Row } from "antd";
@@ -16,7 +16,7 @@ const { Header } = Layout;
 const AppHeader: React.FC = () => {
   const { t } = useTranslation();
   const [activeMenu, setActiveMenu] = React.useState<string>("");
-  const history = useHistory();
+  const navigate = useNavigate();
   const { pathname } = useLocation();
 
   React.useEffect(() => {
@@ -55,7 +55,7 @@ const AppHeader: React.FC = () => {
               <SubMenu
                 key="explore-submenu"
                 title={
-                  <span onClick={() => history.push("/")}>
+                  <span onClick={() => navigate("/")}>
                     <ApartmentOutlined />
                     {t("menu.explore")}
                   </span>

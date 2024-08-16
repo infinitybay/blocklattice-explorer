@@ -8,7 +8,7 @@ import "./Theme.css";
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import { ConfigProvider, Layout, theme } from "antd";
 
@@ -68,28 +68,28 @@ const App: React.FC = () => {
         <AppHeader />
         <Notification />
         <Content>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/representatives" component={RepresentativesPage} />
-            <Route exact path="/developer-fund" component={DeveloperFundPage} />
-            <Route path="/developer-fund/transactions" component={DeveloperFundTransactionsPage} />
-            <Route path="/known-accounts" component={KnownAccountsPage} />
-            <Route path="/faucets" component={FaucetsPage} />
-            <Route path="/large-transactions/:sortBy?" component={LargeTransactionsPage} />
-            <Route path="/account/:account?/:section?" component={AccountPage} />
-            <Route path="/block/:block?" component={BlockPage} />
-            <Route path="/news/:feed?" component={NewsPage} />
-            <Route path="/node-status" component={NodeStatusPage} />
-            <Route path="/network-status" component={NetworkStatusPage} />
-            <Route path="/node-monitors" component={NodeMonitorsPage} />
-            <Route path="/what-is-nano" component={WhatIsNanoPage} />
-            <Route path="/preferences" component={PreferencesPage} />
-            <Route path="/bookmarks" component={BookmarksPage} />
-            <Route path="/nanoquakejs" component={NanoQuakeJSPage} />
-            <Route path="/treasure-hunt/:account?" component={TreasureHunt} />
-            <Route path="/statistics/social" component={StatisticsSocial} />
-            <Route path="/statistics/2miners" component={Statistics2Miners} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<HomePage/>} />
+            <Route path="/representatives" element={<RepresentativesPage/>} />
+            <Route path="/developer-fund" element={<DeveloperFundPage/>} />
+            <Route path="/developer-fund/transactions" element={<DeveloperFundTransactionsPage/>} />
+            <Route path="/known-accounts" element={<KnownAccountsPage/>} />
+            <Route path="/faucets" element={<FaucetsPage/>} />
+            <Route path="/large-transactions/:sortBy?" element={<LargeTransactionsPage/>} />
+            <Route path="/account/:account?/:section?" element={<AccountPage/>} />
+            <Route path="/block/:block?" element={<BlockPage/>} />
+            <Route path="/news/:feed?" element={<NewsPage/>} />
+            <Route path="/node-status" element={<NodeStatusPage/>} />
+            <Route path="/network-status" element={<NetworkStatusPage/>} />
+            <Route path="/node-monitors" element={<NodeMonitorsPage/>} />
+            <Route path="/what-is-nano" element={<WhatIsNanoPage/>} />
+            <Route path="/preferences" element={<PreferencesPage/>} />
+            <Route path="/bookmarks" element={<BookmarksPage/>} />
+            <Route path="/nanoquakejs" element={<NanoQuakeJSPage/>} />
+            <Route path="/treasure-hunt/:account?" element={<TreasureHunt/>} />
+            <Route path="/statistics/social" element={<StatisticsSocial/>} />
+            <Route path="/statistics/2miners" element={<Statistics2Miners/>} />
+          </Routes>
         </Content>
         <AppFooter />
       </Layout>

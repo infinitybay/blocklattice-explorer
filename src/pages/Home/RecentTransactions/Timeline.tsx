@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "react-responsive";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Tag, Timeline, Typography } from "antd";
 import BigNumber from "bignumber.js";
@@ -21,7 +21,7 @@ interface Props {
 
 const RecentTransactions: React.FC<Props> = ({ recentTransactions }) => {
   const { t } = useTranslation();
-  const history = useHistory();
+  const navigate = useNavigate();
   const { theme, filterTransactions, disableLiveTransactions } =
     React.useContext(PreferencesContext);
   const isMediumAndLower = !useMediaQuery({ query: "(min-width: 768px)" });
@@ -86,7 +86,7 @@ const RecentTransactions: React.FC<Props> = ({ recentTransactions }) => {
                   // seems to remove that limitation :shrug:
                   onMouseDown={e => {
                     e.preventDefault();
-                    history.push(`/account/${account}`);
+                    navigate(`/account/${account}`);
                   }}
                 >
                   {account}
@@ -96,7 +96,7 @@ const RecentTransactions: React.FC<Props> = ({ recentTransactions }) => {
                   className="link color-muted"
                   onMouseDown={e => {
                     e.preventDefault();
-                    history.push(`/block/${hash}`);
+                    navigate(`/block/${hash}`);
                   }}
                 >
                   {hash}

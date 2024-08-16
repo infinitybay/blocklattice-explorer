@@ -1,6 +1,6 @@
 import type { SORT_BY } from "pages/LargeTransactions";
 
-export interface PageParams {
+export type PageParams = {
   account?: string;
   block?: string;
   feed?: string;

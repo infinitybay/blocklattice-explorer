@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import { Redirect, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 
 import { isValidAccountAddress } from "components/utils";
 
@@ -12,7 +12,7 @@ const TreasureHunt: React.FC = () => {
   const { account = "" } = useParams<PageParams>();
 
   return account && !isValidAccountAddress(account) ? (
-    <Redirect to="/treasure-hunt" />
+    <Navigate to="/treasure-hunt" />
   ) : (
     <>
       <Helmet>

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { DownOutlined } from "@ant-design/icons";
 import { Button, Card, Col, Dropdown, Menu, Row, Skeleton, Space, Typography } from "antd";
@@ -25,7 +25,7 @@ export enum PostSource {
 
 const NewsPage: React.FC = () => {
   const { t } = useTranslation();
-  const history = useHistory();
+  const navigate = useNavigate();
   const { feed = "" } = useParams<PageParams>();
   const [posts, setPosts] = React.useState([] as (MediumPost | YoutubePost)[]);
   const [authors, setAuthors] = React.useState([""]);
@@ -64,7 +64,7 @@ const NewsPage: React.FC = () => {
   }, [posts]);
 
   const handleFeedFilter = ({ key }: any) => {
-    history.replace(`/news${key !== ALL ? `/${key}` : ""}`);
+    navigate(`/news${key !== ALL ? `/${key}` : ""}`, { replace: true });
     setFeedFilter(key);
   };
 

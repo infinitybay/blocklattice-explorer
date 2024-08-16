@@ -199,7 +199,7 @@ const HomePage = () => {
                     isMarketStatisticsInitialLoading || isMarketStatisticsError || !availableSupply
                   }
                   title={t("pages.home.circulatingSupply")}
-                  tooltip={t<string>("tooltips.circulatingSupply")}
+                  tooltip={t("tooltips.circulatingSupply")}
                   value={new BigNumber(availableSupply).toNumber()}
                 />
               </Col>
@@ -207,7 +207,7 @@ const HomePage = () => {
                 <LoadingStatistic
                   isLoading={!medianConfTime}
                   title={t("pages.home.avgConfirmationTime")}
-                  tooltip={t<string>("tooltips.avgConfirmationTime")}
+                  tooltip={t("tooltips.avgConfirmationTime")}
                   value={new BigNumber(medianConfTime).dividedBy(1000).toNumber()}
                 />
 
@@ -231,7 +231,7 @@ const HomePage = () => {
                 <LoadingStatistic
                   isLoading={false}
                   title={t("pages.home.transactionFees")}
-                  tooltip={t<string>("tooltips.transactionFees")}
+                  tooltip={t("tooltips.transactionFees")}
                   value={0}
                 />
               </Col>
@@ -316,14 +316,14 @@ const HomePage = () => {
                   <LoadingStatistic
                     isLoading={false}
                     title={t("pages.home.transactionFees")}
-                    tooltip={t<string>("tooltips.transactionFees")}
+                    tooltip={t("tooltips.transactionFees")}
                     value={0}
                   />
                 ) : null}
                 <LoadingStatistic
                   isLoading={isMarketStatisticsInitialLoading || isMarketStatisticsError}
                   title={`${t("pages.home.bitcoinTransactionFees")} (${fiat.toUpperCase()})`}
-                  tooltip={t<string>("tooltips.bitcoinTransactionFees")}
+                  tooltip={t("tooltips.bitcoinTransactionFees")}
                   prefix={CurrencySymbol?.[fiat]}
                   value={is24Hours ? btcTransactionFees24h : btcTransactionFees7d}
                   suffix={

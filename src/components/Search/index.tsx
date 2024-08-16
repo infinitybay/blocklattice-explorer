@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {
   BlockOutlined,
@@ -44,7 +44,7 @@ const Search = ({ isHome = false }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [invalidQrCode, setInvalidQrCode] = React.useState("");
 
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const validateSearch = React.useCallback(
     async (value: any) => {
@@ -59,13 +59,13 @@ const Search = ({ isHome = false }) => {
 
         if (isValidBlock) {
           addSearchHistory(value.toUpperCase());
-          history.push(`/block/${value.toUpperCase()}`);
+          navigate(`/block/${value.toUpperCase()}`);
         } else if (isValidAccount) {
           let account = getPrefixedAccount(value);
 
           setSearchValue(account);
           addSearchHistory(account);
-          history.push(`/account/${account}`);
+          navigate(`/account/${account}`);
         } else {
           const filteredKnownAccounts = knownAccounts
             .filter(({ alias }) => alias.toLowerCase().includes(value.toLowerCase()))
@@ -238,7 +238,7 @@ const Search = ({ isHome = false }) => {
             </>
           }
           className={`ant-input-search ${isError ? "has-error" : ""}`}
-          placeholder={t<string>("search.searchBy")}
+          placeholder={t("search.searchBy")}
           onFocus={({ target: { value } }) => {
             validateSearch(value);
             setIsExpanded(true);

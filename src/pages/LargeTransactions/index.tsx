@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { DownOutlined } from "@ant-design/icons";
 import { Button, Dropdown, Menu, Tooltip, Typography } from "antd";
@@ -26,7 +26,7 @@ export enum SORT_BY {
 
 const LargeTransactions: React.FC = () => {
   const { t } = useTranslation();
-  const history = useHistory();
+  const navigate = useNavigate();
   const { sortBy: paramSortBy = SORT_BY.LATEST } = useParams<PageParams>();
   const { largeTransactions, isLoading } = useLargeTransactions();
   const [currentPage, setCurrentPage] = React.useState<number>(1);
@@ -55,7 +55,7 @@ const LargeTransactions: React.FC = () => {
   }, [largeTransactions, sortBy, currentPage]);
 
   const handleSortBy = ({ key }: any) => {
-    history.replace(`/large-transactions/${key}`);
+    navigate(`/large-transactions/${key}`, { replace: true });
     setCurrentPage(1);
     setSortBy(key);
   };

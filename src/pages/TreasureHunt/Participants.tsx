@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useMediaQuery } from "react-responsive";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
 import {
   CheckCircleTwoTone,
@@ -66,7 +66,8 @@ const Participants: React.FC = () => {
     account,
     page: currentPage,
   });
-  const history = useHistory();
+  const navigate = useNavigate();
+  const location = useLocation();
   const isLargeAndLower = !useMediaQuery({ query: "(min-width: 992px)" });
 
   const onChange = (e: React.ChangeEventHandler<HTMLInputElement>) => {
@@ -74,9 +75,9 @@ const Participants: React.FC = () => {
     const { value } = e.currentTarget;
 
     if (value && isValidAccountAddress(value)) {
-      history.push(`/treasure-hunt/${value}`);
-    } else if (!value && history.location.pathname !== "/treasure-hunt") {
-      history.push("/treasure-hunt");
+      navigate(`/treasure-hunt/${value}`);
+    } else if (!value && location.pathname !== "/treasure-hunt") {
+      navigate("/treasure-hunt");
     }
   };
 
