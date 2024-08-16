@@ -2253,5 +2253,13 @@
     "alias": "getnano.ovh Faucet",
     "account": "nano_18e4hwxk48kfy9kjc81hz494z68xa9u5863ain7jwyorqj6tjwhxibx4rzqu",
     "link": "https://getnano.ovh"
+  },
+  {
+    "alias": "Community Protocol Fund",
+    "account": "nano_3fundme3zgwcezey4wo1auae1o16yjds7gw8f9bpke4hrzks966i5qpkycxw"
+  },
+  {
+    "alias": "InfinityBay Representative",
+    "account": "nano_1nfinity1wmkcukp16kfay1o66aezdm1imgjtfxgbnen5ebbwdsdyhd3gunh"
   }
 ]
