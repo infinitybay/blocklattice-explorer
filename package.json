@@ -30,20 +30,15 @@
       "last 1 safari version"
     ]
   },
-  "overrides": {
-    "autoprefixer": "10.4.5",
-    "react-scripts": {
-      "typescript": "$typescript"
-    }
-  },
   "dependencies": {
     "@antv/g2plot": "^2.4.31",
-    "@google-cloud/translate": "^7.2.2",
+    "@google-cloud/translate": "^8.4.0",
     "@sentry/node": "^6.19.2",
     "antd": "^5.5.0",
     "bignumber.js": "^9.0.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "dayjs": "^1.11.12",
     "dot-object": "^2.1.4",
     "dotenv": "^8.2.0",
     "express": "^4.18.2",
@@ -92,6 +87,7 @@
   "devDependencies": {
     "@babel/core": "^7.13.1",
     "@babel/plugin-proposal-optional-chaining": "^7.13.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/preset-env": "^7.13.5",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^9.3.2",
@@ -137,6 +133,6 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.8",
-    "typescript": "^5.0.4"
+    "typescript": "^5.5.4"
   }
 }

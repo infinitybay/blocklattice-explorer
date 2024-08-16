@@ -15,6 +15,7 @@ import {
   Tooltip,
   Typography,
 } from "antd";
+import dayjs from "dayjs";
 import moment from "moment";
 
 import { AccountHistoryFilterContext } from "api/contexts/AccountHistoryFilter";
@@ -36,7 +37,7 @@ const { Option } = Select;
 const TagRender = (props: any) => {
   const { label, value, closable, onClose } = props;
   const { theme } = React.useContext(PreferencesContext);
-  const themeColor = `${value.toUpperCase()}${theme === Theme.DARK ? "_DARK" : ""}`;
+  const themeColor = value ? `${value.toUpperCase()}${theme === Theme.DARK ? "_DARK" : ""}` : "";
 
   const onPreventMouseDown = (event: React.MouseEvent<HTMLSpanElement>) => {
     event.preventDefault();
@@ -216,7 +217,7 @@ const Filters: React.FC = () => {
                 <RangePicker
                   {...field}
                   style={{ width: "100%" }}
-                  defaultValue={[moment().add(-1, "month"), moment().add(-1, "month")]}
+                  defaultValue={[dayjs().subtract(1, 'month'), dayjs().subtract(1, 'month')]}
                   placeholder={[t("pages.account.startDate"), t("pages.account.endDate")]}
                   allowEmpty={[true, true]}
                   disabledDate={disabledDate}

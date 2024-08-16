@@ -166,9 +166,8 @@ const NanoQuakeJSPage: React.FC = () => {
                 height="315"
                 src="https://www.youtube.com/embed/M3uaZh7DXUc?si=z2qBQtGHsJdl8R0A"
                 title="YouTube video player"
-                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
+                allowFullScreen
               ></iframe>
             </div>
 
