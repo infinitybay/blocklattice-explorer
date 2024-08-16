@@ -52,7 +52,7 @@ const Export: React.FC = () => {
       .map(history =>
         Object.entries(pick(history, header))
           .map(([key, value]) => {
-            if (key === "amount" && value) {
+            if (key === "amount" && (typeof value === 'string' || typeof value === 'number')) {
               return rawToRai(value);
             }
             return value;

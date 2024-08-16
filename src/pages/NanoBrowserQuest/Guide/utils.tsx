@@ -129,12 +129,12 @@ export const getItemAttributes = (props: ItemAttributes) => {
     description,
   } = props;
 
-  let skill = null;
+  let skill: { type: string; stats: number; description: string } | null = null;
   if (typeof rawSkill === "number") {
     skill = getSkill(rawSkill, level);
   }
 
-  let partyBonus = null;
+  let partyBonus: { type: string; stats: number; description: string }[] | null = null;
   if (rawPartyBonus) {
     partyBonus = getPartyBonus(rawPartyBonus, 1);
   }
