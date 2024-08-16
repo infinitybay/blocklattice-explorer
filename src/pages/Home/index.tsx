@@ -180,10 +180,20 @@ const HomePage = () => {
             <Row gutter={6}>
               <Col xs={24} sm={12}>
                 <LoadingStatistic
+                  isLoading={!representatives.length}
+                  title={t("pages.home.principalRepOnline")}
+                  value={
+                    representatives.filter(({ isOnline, isPrincipal }) => isOnline && isPrincipal)
+                      ?.length
+                  }
+                />
+
+                <LoadingStatistic
                   isLoading={!count}
                   title={t("pages.home.latestBlock")}
                   value={count}
                 />
+
                 <LoadingStatistic
                   isLoading={
                     isMarketStatisticsInitialLoading || isMarketStatisticsError || !availableSupply
@@ -195,28 +205,11 @@ const HomePage = () => {
               </Col>
               <Col xs={24} sm={12}>
                 <LoadingStatistic
-                  isLoading={!representatives.length}
-                  title={t("pages.home.principalRepOnline")}
-                  value={
-                    representatives.filter(({ isOnline, isPrincipal }) => isOnline && isPrincipal)
-                      ?.length
-                  }
-                />
-                <LoadingStatistic
                   isLoading={!medianConfTime}
                   title={t("pages.home.avgConfirmationTime")}
                   tooltip={t<string>("tooltips.avgConfirmationTime")}
                   value={new BigNumber(medianConfTime).dividedBy(1000).toNumber()}
                 />
-
-                {/* {!isSmallAndLower ? (
-                  <LoadingStatistic
-                    isLoading={false}
-                    title={t("pages.home.transactionFees")}
-                    tooltip={t<string>("tooltips.transactionFees")}
-                    value={0}
-                  />
-                ) : null} */}
 
                 <LoadingStatistic
                   isLoading={!send?.tps}
@@ -233,6 +226,13 @@ const HomePage = () => {
                       : ""
                   }
                   value={send?.cps_p90 ? new BigNumber(send.cps_p90).dividedBy(2).toFixed(2) : 0}
+                />
+
+                <LoadingStatistic
+                  isLoading={false}
+                  title={t("pages.home.transactionFees")}
+                  tooltip={t<string>("tooltips.transactionFees")}
+                  value={0}
                 />
               </Col>
             </Row>
