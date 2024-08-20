@@ -18,8 +18,8 @@ async function connect() {
 
     // await createIndexes();
   } catch (err) {
-    console.err("Failed to connect to MongoDB server");
-    console.err(err);
+    console.error("Failed to connect to MongoDB server");
+    console.error(err);
     Sentry.captureException(err, { extra: { message: "Failed to connect to MongoDB server" } });
   }
 }

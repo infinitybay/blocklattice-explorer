@@ -7,7 +7,7 @@ function terminate(server, options = { coredump: false, timeout: 500 }) {
 
   return (code, reason) => (err, promise) => {
     if (err && err instanceof Error) {
-      console.err(err);
+      console.error(err);
       Sentry.captureException(err);
     }
 

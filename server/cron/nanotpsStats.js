@@ -20,7 +20,7 @@ const doNanoTpsStats = async () => {
 
     nodeCache.set(NANOTPS_STATS, stats);
   } catch (err) {
-    console.err(err);
+    console.error(err);
     Sentry.captureException(err, { extra: { res } });
   }
 };
