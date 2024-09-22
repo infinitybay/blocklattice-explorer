@@ -8,20 +8,20 @@
     "account": "nano_3kef5c3ahkwf3qcyw61qcnma668z8ez4ocnm55gkiaqeure3ghcfqunfynug"
   },
   {
-    "name": "Binance US Hot Wallet",
-    "account": "nano_17oc98sqccfqqfah8jggkziu8i6ar8biq7syxqcd6e1sagje11gts88gfj95"
-  },
-  {
-    "name": "Binance US Hot Wallet #2",
-    "account": "nano_3yej4c6s5ddwk8bq1o3945jgzx7axh94p813dmnq1aywh8ekufhfsgw68cbg"
-  },
-  {
     "name": "Binance Cold Wallet",
     "account": "nano_3x4ui45q1cw8hydmfdn4ec5ijsdqi4ryp14g4ayh71jcdkwmddrq7ca9xzn9"
   },
   {
     "name": "Binance Cold Wallet #2",
     "account": "nano_14cuejfpr58epnpxenirusimsrbwxbecin7a3izq1injptecc31qsjwquoe6"
+  },
+  {
+    "name": "Binance US Hot Wallet",
+    "account": "nano_17oc98sqccfqqfah8jggkziu8i6ar8biq7syxqcd6e1sagje11gts88gfj95"
+  },
+  {
+    "name": "Binance US Hot Wallet #2",
+    "account": "nano_3yej4c6s5ddwk8bq1o3945jgzx7axh94p813dmnq1aywh8ekufhfsgw68cbg"
   },
   {
     "name": "Kraken Hot Wallet",

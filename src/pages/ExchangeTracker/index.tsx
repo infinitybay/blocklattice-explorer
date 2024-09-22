@@ -282,7 +282,7 @@ const ExchangeTrackerPage: React.FC = () => {
           <Tag
             style={{ cursor: "pointer", marginBottom: "8px" }}
             color={
-              isSelectedExchanges ? tagColors[(tagColors.length - 1) % tagColors.length] : "default"
+              isSelectedExchanges ? tagColors[tagColors.length - 1] : "default"
             }
             onClick={() => {
               setIsSelectedExchanges(!isSelectedExchanges);
