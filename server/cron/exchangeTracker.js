@@ -217,9 +217,7 @@ const doExchangeBalancesCron = () => {
   }
 };
 
-if (process.env.NODE_ENV === "production") {
-  doExchangeBalancesCron();
-}
+// doExchangeBalancesCron();
 
 module.exports = {
   getExchangeBalances,
