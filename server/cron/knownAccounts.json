@@ -222,5 +222,25 @@
   {
     "alias": "Zenitria 🌱",
     "account": "nano_1green1fbejoedao3hnpfgozngfgmhw7mmmxikhxauiw1aux4di7fwgridr9"
+  },
+  {
+    "alias": "Community Protocol Fund",
+    "account": "nano_3fundme3zgwcezey4wo1auae1o16yjds7gw8f9bpke4hrzks966i5qpkycxw"
+  },
+  {
+    "alias": "InfinityBay",
+    "account": "nano_1nfinity1wmkcukp16kfay1o66aezdm1imgjtfxgbnen5ebbwdsdyhd3gunh"
+  },
+  {
+    "alias": "Elon Musk",
+    "account": "nano_1emuskx51n5raf7ockt8fymkzcc9xs3o4pqo4dfitt8h7berqn5jcjfx7hq5"
+  },
+  {
+    "alias": "Kraken Cold Wallet",
+    "account": "nano_3z8pmqtzk3ssxkiyhckf9g8gpdxrw6aco8y9smrh15zh4mrr5kz1yc8pib9j"
+  },
+  {
+    "alias": "Nano River Faucet",
+    "account": "nano_14hns4kgbbaf6f953qkcnh1qq1hu4tg9ig5fqrhsj6q6z7outdaj1fwutsty"
   }
 ]

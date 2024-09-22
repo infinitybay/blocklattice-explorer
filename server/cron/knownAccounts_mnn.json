@@ -2269,5 +2269,10 @@
   {
     "alias": "Kraken Cold Wallet",
     "account": "nano_3z8pmqtzk3ssxkiyhckf9g8gpdxrw6aco8y9smrh15zh4mrr5kz1yc8pib9j"
+  },
+  {
+    "alias": "Nano River Faucet",
+    "account": "nano_14hns4kgbbaf6f953qkcnh1qq1hu4tg9ig5fqrhsj6q6z7outdaj1fwutsty",
+    "link": "https://faucet.nanoriver.io"
   }
 ]

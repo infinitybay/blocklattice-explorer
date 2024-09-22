@@ -1,5 +1,10 @@
 [
   {
+    "alias": "Nano River",
+    "account": "nano_14hns4kgbbaf6f953qkcnh1qq1hu4tg9ig5fqrhsj6q6z7outdaj1fwutsty",
+    "link": "https://faucet.nanoriver.io"
+  },
+  {
     "alias": "Nanswap Faucet",
     "account": "nano_3rksbipm1b1g64gw6t36ufc77q7mtw1uybnto4xyn1e7ae5aikyknb9fg4su",
     "link": "https://nanswap.com/get-free-nano"
@@ -18,11 +23,6 @@
     "alias": "LuckyNano",
     "account": "nano_1oenixj4qtpfcembga9kqwggkb87wooicfy5df8nhdywrjrrqxk7or4gz15b",
     "link": "https://luckynano.com"
-  },
-  {
-    "alias": "Nanocafe",
-    "account": "nano_1cafe95a81ko3mq3oin4wnubsbw9z3w3tw5a95u47897wxy96r1zj9hxu1wb",
-    "link": "https://nanocafe.cc/faucet"
   },
   {
     "alias": "Nano 💧 Drop",
