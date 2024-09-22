@@ -7,7 +7,7 @@ const { rawToRai } = require("../utils");
 const { NODE_MONITORS } = require("../constants");
 const monitorAliases = require("./monitorAliases.json");
 
-const NODE_IP_REGEX = /\[::ffff:([\d.]+)\]:[\d]+/;
+const NODE_IP_REGEX = /\[::ffff:([\d.]+)\]:([\d]+)/;
 
 // Get Representative peers (participating in the quorum)
 const getConfirmationQuorumPeers = async () => {
@@ -21,12 +21,13 @@ const getConfirmationQuorumPeers = async () => {
     );
 
     peers = rawPeers.map(({ account, ip: rawIp, weight: rawWeight }) => {
-      const [, ip] = rawIp.match(NODE_IP_REGEX);
+      const [, ip, port] = rawIp.match(NODE_IP_REGEX);
       const weight = rawToRai(rawWeight);
       return {
         account,
         rawIp,
         ip,
+        port,
         weight,
         isPrincipal: weight >= principal_representative_min_weight,
       };

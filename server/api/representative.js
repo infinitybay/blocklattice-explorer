@@ -27,7 +27,7 @@ const setRepresentatives = async ({ metrics, peers }) => {
     peers
       .map(peer => {
         const metric = metrics.find(
-          ({ address }) => address && peer.ip && address.includes(peer.ip),
+          ({ address, port }) => address && peer.ip && address.includes(peer.ip) && peer.port && peer.port === port,
         );
 
         if (metric) {
