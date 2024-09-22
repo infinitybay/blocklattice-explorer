@@ -74,6 +74,7 @@ const App: React.FC = () => {
             <Route path="/developer-fund" element={<DeveloperFundPage/>} />
             <Route path="/developer-fund/transactions" element={<DeveloperFundTransactionsPage/>} />
             <Route path="/known-accounts" element={<KnownAccountsPage/>} />
+            <Route path="/exchange-tracker" element={<ExchangeTrackerPage/>} />
             <Route path="/faucets" element={<FaucetsPage/>} />
             <Route path="/large-transactions/:sortBy?" element={<LargeTransactionsPage/>} />
             <Route path="/account/:account?/:section?" element={<AccountPage/>} />
