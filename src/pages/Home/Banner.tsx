@@ -23,7 +23,7 @@ const Banner: React.FC = () => {
         alignItems: "center",
         flexDirection: "column",
         margin: "-12px -12px 12px -12px",
-        backgroundColor: theme === Theme.DARK ? "#121212" : "#4A90E2",
+        backgroundColor: theme === Theme.DARK ? "#000000" : "#000000",
         padding: "40px 0",
       }}
     >
@@ -40,7 +40,7 @@ const Banner: React.FC = () => {
         <img
           alt="Nano block explorer"
           height="24px"
-          src={`/nano-${theme === Theme.DARK ? "dark" : "light"}.png`}
+          src={`/nano-${theme === Theme.DARK ? "light" : "light"}.png`}
           style={{ marginRight: "12px" }}
         />
         <Title
