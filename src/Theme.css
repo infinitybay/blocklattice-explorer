@@ -20,6 +20,10 @@ body .theme-dark {
   border-top: solid 1px #f0f0f0;
 }
 
+.theme-light .ant-input-search {
+  border-color: #000000;
+}
+
 .theme-dark .app-sub-header {
   color: #e1e1e1;
   background: #1e1e1e;
@@ -41,8 +45,7 @@ body .theme-dark {
 }
 
 .theme-dark .ant-input-search {
-  background-color: transparent !important;
-  border-color: #1e1e1e;
+  border-color: #FFFFFF;
 }
 
 .theme-dark
