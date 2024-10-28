@@ -17,8 +17,6 @@ const AppFooter: React.FC = () => {
   const { t } = useTranslation();
   const { theme } = React.useContext(PreferencesContext);
 
-  const donateColor = theme === Theme.DARK ? TwoToneColors.DONATE_DARK : TwoToneColors.DONATE;
-
   return (
     <Footer style={{ textAlign: "center" }}>
       <div>
@@ -32,16 +30,6 @@ const AppFooter: React.FC = () => {
         </a>{" "}
         ©{new Date().getFullYear()} {t("footer.createdBy", { creator: "RunningCoder" })}
       </div>
-
-      <QRCodeModal account={DONATION_ACCOUNT} header={<Text>{t("footer.donations.title")}</Text>}>
-        <Tag
-          color={donateColor}
-          icon={<HeartTwoTone twoToneColor={donateColor} />}
-          style={{ cursor: "pointer", marginTop: "6px" }}
-        >
-          {t("footer.donations.donate")}
-        </Tag>
-      </QRCodeModal>
     </Footer>
   );
 };
