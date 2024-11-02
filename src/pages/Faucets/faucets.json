@@ -35,23 +35,8 @@
     "link": "https://faucet.prussia.dev/nano"
   },
   {
-    "alias": "Nano Queen Faucet",
-    "account": "nano_3yw7sznr3dhgd39y6spu5tzzr7qp3fore5ugz9fkfp4pqsq445yschw5d6xz",
-    "link": "https://faucetqueen.repl.co"
-  },
-  {
     "alias": "i can haz nano",
     "account": "nano_1monkecrqoqr6j6qzhtd9i8x49ujdnoqt7ramt9jmhd543icsrx5accoqtd5",
     "link": "https://icanhaznano.monke42.tk"
-  },
-  {
-    "alias": "getnano.ovh Faucet",
-    "account": "nano_3getnanons1aaqo5itbm8wdbzhtsp7tctd6p6qa7axwff7ocemzs3w381kfy",
-    "link": "https://getnano.ovh"
-  },
-  {
-    "alias": "Solar Nano Faucet",
-    "account": "nano_3wbisaa5xw83u9bhciqnp5odwq1ihnjjtt48m6jrt6zdawpztwggse714cch",
-    "link": "https://solarnanofaucet.space/faucet"
   }
 ]
