@@ -132,6 +132,10 @@ const AppHeader: React.FC = () => {
         style={{
           display: "flex",
           justifyContent: "space-between",
+          background: pathname === "/" ? "url('/christmas-banner-sub-header.png')" : undefined,
+          backgroundPosition: "bottom center",
+          backgroundRepeat: "repeat-x",
+          border: "none",
         }}
       >
         <div
