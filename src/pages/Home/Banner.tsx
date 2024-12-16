@@ -24,9 +24,6 @@ const Banner: React.FC = () => {
         flexDirection: "column",
         margin: "-12px -12px 12px -12px",
         backgroundColor: theme === Theme.DARK ? "#000000" : "#4A90E2",
-        background: "url('/christmas-banner.png')",
-        backgroundPosition: "top center",
-        backgroundRepeat: "repeat-x",
         padding: "40px 0",
       }}
     >
@@ -38,7 +35,6 @@ const Banner: React.FC = () => {
           flexWrap: "wrap",
           width: "100%",
           justifyContent: "center",
-          background: "rgba(0,0,0,0.5)",
         }}
       >
         <img

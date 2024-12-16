@@ -16,13 +16,13 @@ body .theme-dark {
 }
 
 .theme-light .app-sub-header {
-  background-color: #ffffff !important;
+  background: #fff;
   border-top: solid 1px #f0f0f0;
 }
 
 .theme-dark .app-sub-header {
   color: #e1e1e1;
-  background-color: #121212 !important;
+  background: #1e1e1e;
   border-top: 1px solid #303030;
   border-bottom: 1px solid #303030;
 }
