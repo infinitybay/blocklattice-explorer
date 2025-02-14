@@ -4,20 +4,19 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Link } from "react-router-dom";
 
 import { Typography } from "antd";
-import * as L from "leaflet-extra-markers";
+import * as L from "leaflet";
+import 'leaflet-extra-markers';
 
 import { KnownAccountsContext } from "api/contexts/KnownAccounts";
 import { NodeMonitor } from "api/hooks/use-node-monitors";
 
 const { Title } = Typography;
 
-// @ts-ignore
 const nodeMarker = L.ExtraMarkers.icon({
   markerColor: "white",
   shape: "circle",
 });
 
-// @ts-ignore
 const principalNodeMarker = L.ExtraMarkers.icon({
   markerColor: "cyan",
   shape: "star",
