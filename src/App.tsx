@@ -6,11 +6,12 @@ import "./App.css";
 import "./Theme.css";
 
 import * as React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { Route, Routes } from "react-router-dom";
 
 import { ConfigProvider, Layout, theme } from "antd";
+import { HelmetProvider } from "react-helmet-async";
 
 import "components/utils/analytics";
 import { PreferencesContext, Theme } from "api/contexts/Preferences";
@@ -49,52 +50,54 @@ const App: React.FC = () => {
   const { theme: themeContext } = React.useContext(PreferencesContext);
 
   return (
-    <ConfigProvider
-      theme={{
-        algorithm: themeContext === Theme.DARK ? theme.darkAlgorithm : undefined,
-      }}
-    >
-      <Helmet>
-        <html lang={i18next.language} />
-        <title>Blocklattice Explorer</title>
-        <meta name="description" content="Block explorer of the Nano cryptocurrency" />
-        <meta name="theme-color" content={themeContext === Theme.DARK ? "#131313" : "#eff2f5"} />
-      </Helmet>
-      <Layout
-        style={{ minHeight: "100vh" }}
-        className={themeContext ? `theme-${themeContext}` : undefined}
+    <HelmetProvider>
+      <ConfigProvider
+        theme={{
+          algorithm: themeContext === Theme.DARK ? theme.darkAlgorithm : undefined,
+        }}
       >
-        {/* <NodeHealth /> */}
-        <AppHeader />
-        <Notification />
-        <Content>
-          <Routes>
-            <Route path="/" element={<HomePage/>} />
-            <Route path="/representatives" element={<RepresentativesPage/>} />
-            <Route path="/developer-fund" element={<DeveloperFundPage/>} />
-            <Route path="/developer-fund/transactions" element={<DeveloperFundTransactionsPage/>} />
-            <Route path="/known-accounts" element={<KnownAccountsPage/>} />
-            <Route path="/exchange-tracker" element={<ExchangeTrackerPage/>} />
-            <Route path="/faucets" element={<FaucetsPage/>} />
-            <Route path="/large-transactions/:sortBy?" element={<LargeTransactionsPage/>} />
-            <Route path="/account/:account?/:section?" element={<AccountPage/>} />
-            <Route path="/block/:block?" element={<BlockPage/>} />
-            <Route path="/news/:feed?" element={<NewsPage/>} />
-            <Route path="/node-status" element={<NodeStatusPage/>} />
-            <Route path="/network-status" element={<NetworkStatusPage/>} />
-            <Route path="/node-monitors" element={<NodeMonitorsPage/>} />
-            <Route path="/what-is-nano" element={<WhatIsNanoPage/>} />
-            <Route path="/preferences" element={<PreferencesPage/>} />
-            <Route path="/bookmarks" element={<BookmarksPage/>} />
-            <Route path="/nanoquakejs" element={<NanoQuakeJSPage/>} />
-            <Route path="/treasure-hunt/:account?" element={<TreasureHunt/>} />
-            <Route path="/statistics/social" element={<StatisticsSocial/>} />
-            <Route path="/statistics/2miners" element={<Statistics2Miners/>} />
-          </Routes>
-        </Content>
-        <AppFooter />
-      </Layout>
-    </ConfigProvider>
+        <Helmet>
+          <html lang={i18next.language} />
+          <title>Blocklattice Explorer</title>
+          <meta name="description" content="Block explorer of the Nano cryptocurrency" />
+          <meta name="theme-color" content={themeContext === Theme.DARK ? "#131313" : "#eff2f5"} />
+        </Helmet>
+        <Layout
+          style={{ minHeight: "100vh" }}
+          className={themeContext ? `theme-${themeContext}` : undefined}
+        >
+          {/* <NodeHealth /> */}
+          <AppHeader />
+          <Notification />
+          <Content>
+            <Routes>
+              <Route path="/" element={<HomePage/>} />
+              <Route path="/representatives" element={<RepresentativesPage/>} />
+              <Route path="/developer-fund" element={<DeveloperFundPage/>} />
+              <Route path="/developer-fund/transactions" element={<DeveloperFundTransactionsPage/>} />
+              <Route path="/known-accounts" element={<KnownAccountsPage/>} />
+              <Route path="/exchange-tracker" element={<ExchangeTrackerPage/>} />
+              <Route path="/faucets" element={<FaucetsPage/>} />
+              <Route path="/large-transactions/:sortBy?" element={<LargeTransactionsPage/>} />
+              <Route path="/account/:account?/:section?" element={<AccountPage/>} />
+              <Route path="/block/:block?" element={<BlockPage/>} />
+              <Route path="/news/:feed?" element={<NewsPage/>} />
+              <Route path="/node-status" element={<NodeStatusPage/>} />
+              <Route path="/network-status" element={<NetworkStatusPage/>} />
+              <Route path="/node-monitors" element={<NodeMonitorsPage/>} />
+              <Route path="/what-is-nano" element={<WhatIsNanoPage/>} />
+              <Route path="/preferences" element={<PreferencesPage/>} />
+              <Route path="/bookmarks" element={<BookmarksPage/>} />
+              <Route path="/nanoquakejs" element={<NanoQuakeJSPage/>} />
+              <Route path="/treasure-hunt/:account?" element={<TreasureHunt/>} />
+              <Route path="/statistics/social" element={<StatisticsSocial/>} />
+              <Route path="/statistics/2miners" element={<Statistics2Miners/>} />
+            </Routes>
+          </Content>
+          <AppFooter />
+        </Layout>
+      </ConfigProvider>
+    </HelmetProvider>
   );
 };
 

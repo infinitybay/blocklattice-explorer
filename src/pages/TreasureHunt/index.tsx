@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { Navigate, useParams } from "react-router-dom";
 
 import { isValidAccountAddress } from "components/utils";
