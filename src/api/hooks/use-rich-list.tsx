@@ -2,7 +2,7 @@ import * as React from "react";
 
 import qs from "qs";
 
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
 
 export interface Data {
   account: string;
@@ -64,7 +64,7 @@ const useRichList = ({ account, page }: Params): Return => {
 
     const accounts = (data as Data[]).map(({ account, balance }) => {
       const alias = knownAccounts.find(
-        ({ account: knownAccount }) => account === knownAccount,
+        (knownAccount: KnownAccount) => account === knownAccount.account,
       )?.alias;
 
       return {

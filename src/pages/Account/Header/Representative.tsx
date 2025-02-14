@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { Col, Row, Tag, Typography } from "antd";
 
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
 import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import { RepresentativesContext } from "api/contexts/Representatives";
 import useRepresentative from "api/hooks/use-representative";
@@ -42,7 +42,7 @@ const AccountRepresentative: React.FC<Props> = ({ account }) => {
       setAccountRepresentative(representative);
     } else {
       const alias = knownAccounts.find(
-        ({ account: knownAccount }) => knownAccount === account,
+        (knownAccount: KnownAccount) => knownAccount.account === account,
       )?.alias;
       if (alias) {
         setAlias(alias);

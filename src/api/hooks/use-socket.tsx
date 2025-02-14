@@ -2,7 +2,7 @@ import * as React from "react";
 
 import find from "lodash/find";
 
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
 import { PreferencesContext } from "api/contexts/Preferences";
 
 import type { Transaction } from "types/transaction";
@@ -95,7 +95,7 @@ const useSocket = () => {
           message.timestamp = Date.now();
           message.alias = find(
             knownAccounts,
-            ({ account: knownAccount }) => knownAccount === message.account,
+            (knownAccount: KnownAccount) => knownAccount.account === message.account,
           )?.alias;
 
           setRecentTransactions(prevRecentTransactions =>

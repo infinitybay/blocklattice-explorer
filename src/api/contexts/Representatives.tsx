@@ -3,7 +3,7 @@ import * as React from "react";
 import { rpc } from "api/rpc";
 
 import { ConfirmationQuorumContext } from "./ConfirmationQuorum";
-import { KnownAccountsContext } from "./KnownAccounts";
+import { KnownAccount, KnownAccountsContext } from "./KnownAccounts";
 import { RepresentativesOnlineContext } from "./RepresentativesOnline";
 
 export interface Representative {
@@ -78,7 +78,7 @@ const Provider: React.FC<Props> = ({ children }) => {
         weight,
         isOnline: representativesOnline.includes(account),
         isPrincipal: weight >= principalRepresentativeMinWeight,
-        alias: knownAccounts.find(({ account: knownAccount }) => account === knownAccount)?.alias,
+        alias: knownAccounts.find((knownAccount: KnownAccount) => account === knownAccount.account)?.alias,
       })),
     );
 

@@ -9,7 +9,7 @@ import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
 
 import { History } from "api/contexts/AccountHistory";
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
 import { PreferencesContext, Theme } from "api/contexts/Preferences";
 import { Natricon } from "components/Preferences/Natricons/Natricon";
 import { rawToRai, toBoolean } from "components/utils";
@@ -133,7 +133,7 @@ const TransactionsTable = ({
               const account = transactionType === "change" ? representative : historyAccount;
               const knownAccount =
                 account &&
-                knownAccounts.find(({ account: knownAccount }) => account === knownAccount);
+                knownAccounts.find((knownAccount: KnownAccount) => account === knownAccount.account);
 
               const modifiedTimestamp = Number(localTimestamp) * 1000;
               const modifiedDate = new Date(modifiedTimestamp);

@@ -9,7 +9,7 @@ import BigNumber from "bignumber.js";
 import TimeAgo from "timeago-react";
 
 import { BlocksInfoContext } from "api/contexts/BlocksInfo";
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
 import { MarketStatisticsContext } from "api/contexts/MarketStatistics";
 import {
   CurrencyDecimal,
@@ -97,13 +97,13 @@ const BlockDetails: React.FC = () => {
   const secondAccount = isValidAccountAddress(sourceAccount || "") ? sourceAccount : linkAsAccount;
 
   const blockAccountAlias = knownAccounts.find(
-    ({ account: knownAccount }) => knownAccount === blockAccount,
+    (knownAccount: KnownAccount) => knownAccount.account === blockAccount,
   )?.alias;
   const secondAccountAlias = knownAccounts.find(
-    ({ account: knownAccount }) => knownAccount === secondAccount,
+    (knownAccount: KnownAccount) => knownAccount.account === secondAccount,
   )?.alias;
   const representativeAlias = knownAccounts.find(
-    ({ account: knownAccount }) => knownAccount === representative,
+    (knownAccount: KnownAccount) => knownAccount.account === representative,
   )?.alias;
 
   const isConfirmed = toBoolean(blockInfo?.confirmed);

@@ -8,7 +8,7 @@ import BigNumber from "bignumber.js";
 
 import { AccountInfoContext } from "api/contexts/AccountInfo";
 import { DelegatorsContext } from "api/contexts/Delegators";
-import { KnownAccountsContext } from "api/contexts/KnownAccounts";
+import { KnownAccount, KnownAccountsContext } from "api/contexts/KnownAccounts";
 import useDelegators from "api/hooks/use-delegators";
 
 const { Title } = Typography;
@@ -87,7 +87,7 @@ const Delegators: React.FC = () => {
           <>
             {Object.entries(delegators || []).map(([account, weight]) => {
               const alias = knownAccounts.find(
-                ({ account: knownAccount }) => account === knownAccount,
+                (knownAccount: KnownAccount) => account === knownAccount.account,
               )?.alias;
 
               return (
