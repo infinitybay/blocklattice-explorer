@@ -214,7 +214,7 @@ const TransactionsTable = ({
                     </Text>
                   </Col>
                   <Col xs={8} md={12} lg={3} style={{ textAlign: "right" }}>
-                    {Number(localTimestamp) ? (
+                    {Number(localTimestamp) >= 1576105200 ? (
                       <>
                         {modifiedDate.getFullYear()}/
                         {String(modifiedDate.getMonth() + 1).padStart(2, "0")}/
