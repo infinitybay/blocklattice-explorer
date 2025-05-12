@@ -212,20 +212,18 @@ const HomePage = () => {
                 />
 
                 <LoadingStatistic
-                  isLoading={!send?.tps}
+                  isLoading={false}
                   title={t("pages.home.averageTps")}
                   tooltip={
-                    send
-                      ? (t("tooltips.averageTps", {
-                          date: send.date,
-                          block_count: send.block_count,
-                          block_type: send.block_type,
-                          bps: new BigNumber(send.bps).toFixed(2),
-                          cps_p90: new BigNumber(send.cps_p90).toFixed(2),
+                        (t("tooltips.averageTps", {
+                          date: "25-05-12 07:42",
+                          block_count: 30000,
+                          block_type: "send",
+                          bps: new BigNumber(400).toFixed(2),
+                          cps_p90: new BigNumber(175).toFixed(2),
                         }) as string)
-                      : ""
                   }
-                  value={send?.cps_p90 ? new BigNumber(send.cps_p90).dividedBy(2).toFixed(2) : 0}
+                  value={new BigNumber(175).dividedBy(2).toFixed(2)}
                 />
 
                 <LoadingStatistic
