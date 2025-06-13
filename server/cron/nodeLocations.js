@@ -30,7 +30,7 @@ const getNodePeers = async () => {
 
 const getNodeLocation = async ip => {
   try {
-    const res = await fetch(`https://ipapi.co/${ip}/json/?key=${process.env.IPAPI_KEY}`);
+    const res = await fetch(`https://ipapi.co/${ip}/json`);
     const {
       version,
       city,
@@ -71,6 +71,10 @@ const getNodeLocation = async ip => {
   return {};
 };
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const doNodeLocations = async () => {
   console.log("Starting doNodeLocations");
   const nodeLocations = nodeCache.get(NODE_LOCATIONS);
@@ -85,17 +89,19 @@ const doNodeLocations = async () => {
 
     for (let i = 0; i < peersChunks.length; i++) {
       console.log(`Processing node location ${i + 1} of ${peersChunks.length}`);
-      const locationResults = await Promise.all(
-        peersChunks[i].map(async ({ ip, ...rest }) => {
-          const location = await getNodeLocation(ip);
 
-          return {
-            ip,
-            ...rest,
-            location,
-          };
-        }),
-      );
+      const locationResults = [];
+      for (const { ip, ...rest } of peersChunks[i]) {
+        const location = await getNodeLocation(ip);
+
+        locationResults.push({
+          ip,
+          ...rest,
+          location,
+        });
+
+        await sleep(1000); // Throttle API requests
+      }
 
       results = results.concat(locationResults);
     }
@@ -117,10 +123,12 @@ const doNodeLocations = async () => {
   }
 };
 
-// https://crontab.guru/#00_01,13_*_*_*
-// At minute 0 past hour 1 and 13.”
-cron.schedule("00 01,13 * * *", () => {
+// https://crontab.guru/#*_*/6_*_*_*
+// At every 6th hour.
+cron.schedule("* */6 * * *", async () => {
   if (process.env.NODE_ENV !== "production") return;
 
   doNodeLocations();
 });
+
+doNodeLocations();
