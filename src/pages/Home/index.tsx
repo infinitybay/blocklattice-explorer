@@ -175,7 +175,6 @@ const HomePage = () => {
           <Card
             size="small"
             title={t("pages.home.network")}
-            extra={<Link to="/statistics/social">{t("pages.home.viewSocialEngagement")}</Link>}
           >
             <Row gutter={6}>
               <Col xs={24} sm={12}>

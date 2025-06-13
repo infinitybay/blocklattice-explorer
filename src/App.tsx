@@ -90,7 +90,6 @@ const App: React.FC = () => {
               <Route path="/bookmarks" element={<BookmarksPage/>} />
               <Route path="/nanoquakejs" element={<NanoQuakeJSPage/>} />
               <Route path="/treasure-hunt/:account?" element={<TreasureHunt/>} />
-              <Route path="/statistics/social" element={<StatisticsSocial/>} />
               <Route path="/statistics/2miners" element={<Statistics2Miners/>} />
             </Routes>
           </Content>
