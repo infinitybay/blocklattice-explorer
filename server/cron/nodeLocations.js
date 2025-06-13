@@ -77,11 +77,7 @@ function sleep(ms) {
 
 const doNodeLocations = async () => {
   console.log("Starting doNodeLocations");
-  const nodeLocations = nodeCache.get(NODE_LOCATIONS);
   try {
-    if (nodeLocations) {
-      return nodeLocations;
-    }
     let peers = await getNodePeers();
     let results = [];
 
