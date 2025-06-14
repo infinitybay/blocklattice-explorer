@@ -96,7 +96,7 @@ const doNodeLocations = async () => {
           location,
         });
 
-        await sleep(1000); // Throttle API requests
+        await sleep(240000); // Throttle API requests
       }
 
       results = results.concat(locationResults);
@@ -119,12 +119,12 @@ const doNodeLocations = async () => {
   }
 };
 
-// https://crontab.guru/#*_*/6_*_*_*
-// At every 6th hour.
-cron.schedule("* */6 * * *", async () => {
+// https://crontab.guru/#*_*/12_*_*_*
+// At every 12th hour.
+cron.schedule("* */12 * * *", async () => {
   if (process.env.NODE_ENV !== "production") return;
 
   doNodeLocations();
 });
 
-doNodeLocations();
+//doNodeLocations();
