@@ -124,7 +124,7 @@ const doNodeLocations = async () => {
 cron.schedule("* */12 * * *", async () => {
   if (process.env.NODE_ENV !== "production") return;
 
-  doNodeLocations();
+  //doNodeLocations();
 });
 
 //doNodeLocations();
