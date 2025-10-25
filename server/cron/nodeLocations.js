@@ -121,10 +121,10 @@ const doNodeLocations = async () => {
 
 // https://crontab.guru/#*_*/12_*_*_*
 // At every 12th hour.
-cron.schedule("* */12 * * *", async () => {
-  if (process.env.NODE_ENV !== "production") return;
-
-  doNodeLocations();
-});
+//cron.schedule("* */12 * * *", async () => {
+//  if (process.env.NODE_ENV !== "production") return;
+//
+//  doNodeLocations();
+//});
 
 //doNodeLocations();
