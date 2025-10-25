@@ -28,12 +28,20 @@
     "account": "nano_3cpz7oh9qr5b7obbcb5867omqf8esix4sdd5w6mh8kkknamjgbnwrimxsaaf"
   },
   {
+    "name": "Kraken Hot Wallet #2",
+    "account": "nano_335o96s1kje9jzwukjkqt74iatrfqz4uoue7ocxpce95eukmicpyjmj1ke81"
+  },
+  {
     "name": "Kraken Cold Wallet",
     "account": "nano_3z8pmqtzk3ssxkiyhckf9g8gpdxrw6aco8y9smrh15zh4mrr5kz1yc8pib9j"
   },
   {
     "name": "Kraken Cold Wallet #2",
     "account": "nano_3cyiqremc3unodzdg7ffhkixaymta8y647y19w7dfatj33ksr9khhufc9iw8"
+  },
+  {
+    "name": "Kraken Cold Wallet #3",
+    "account": "nano_1wsf3wx3oj4qr4eyxq5ns4ffy4yrjfgczdo441786s3a5g4reyrnjf5tcfwb"
   },
   {
     "name": "KuCoin Hot Wallet",
