@@ -2,17 +2,16 @@ const { Sentry } = require("../sentry");
 const { nodeCache } = require("../client/cache");
 const db = require("../client/mongo");
 const {
+  EXPIRE_1M,
   EXPIRE_1h,
   EXPIRE_24H,
   EXPIRE_48H,
-  MONGO_URL,
-  MONGO_OPTIONS,
-  MONGO_DB,
   COINGECKO_MARKET_STATS,
   COINGECKO_MARKET_CAP_STATS,
   COINGECKO_ALL_PRICE_STATS,
   COINGECKO_PRICE_STATS,
   MARKET_CAP_RANK_24H,
+  MARKET_CAP_RANK_CMC,
   MARKET_CAP_RANK_COLLECTION,
   MARKET_CAP_STATS_COLLECTION,
 } = require("../constants");
@@ -47,10 +46,10 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
           .find({
             createdAt: {
               $lte: new Date(Date.now() - EXPIRE_24H * 1000),
-              $gte: new Date(Date.now() - EXPIRE_48H * 1000),
             },
           })
-          .sort({ value: 1 })
+          .sort({ createdAt: -1 })
+          .limit(1)
           .toArray()
           .then(([{ value } = {}]) => {
             nodeCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
@@ -62,14 +61,40 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
       }
     });
 
-  [marketCapRank24h, marketStats, priceStats] = await Promise.all([
+  let marketCapRankCMC = nodeCache.get(MARKET_CAP_RANK_CMC);
+
+  const getMarketCapCMC =
+    marketCapRankCMC ||
+    new Promise(async (resolve, reject) => {
+      try {
+        const database = await db.getDatabase();
+
+        if (!database) {
+          throw new Error("Mongo unavailable for getCoingeckoStats");
+        }
+
+        database
+          .collection(MARKET_CAP_RANK_COLLECTION)
+          .findOne({}, { sort: { createdAt: -1 } })
+          .then(({ value } = {}) => {
+            nodeCache.set(MARKET_CAP_RANK_CMC, value, EXPIRE_1M);
+            resolve(value);
+          });
+      } catch (err) {
+        Sentry.captureException(err);
+        resolve();
+      }
+    });
+
+  [marketCapRank24h, marketCapRankCMC, marketStats, priceStats] = await Promise.all([
     getMarketCapRank24h,
+    getMarketCapCMC,
     marketStats,
     priceStats,
   ]);
 
   return {
-    marketStats: Object.assign(marketStats, { marketCapRank24h }),
+    marketStats: Object.assign(marketStats, { marketCapRank24h, marketCapRankCMC }),
     priceStats,
   };
 };

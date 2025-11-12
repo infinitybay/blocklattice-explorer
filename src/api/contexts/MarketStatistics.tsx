@@ -36,6 +36,7 @@ export interface Response {
   [NANOTPS_STATS]: any;
   marketCapRank: number;
   marketCapRank24h: number;
+  marketCapRankCMC: number;
   marketCap: number;
   marketCapChangePercentage24h: number;
   volume24h: number;
@@ -85,6 +86,7 @@ export const MarketStatisticsContext = React.createContext<Context>({
     },
     marketCapRank: 0,
     marketCapRank24h: 0,
+    marketCapRankCMC: 0,
     marketCap: 0,
     marketCapChangePercentage24h: 0,
     volume24h: 0,
@@ -94,10 +96,10 @@ export const MarketStatisticsContext = React.createContext<Context>({
     circulatingSupply: 0,
     priceStats: {},
   },
-  getMarketStatistics: () => {},
-  setIsInitialLoading: () => {},
+  getMarketStatistics: () => { },
+  setIsInitialLoading: () => { },
   isInitialLoading: false,
-  setIs24Hours: () => {},
+  setIs24Hours: () => { },
   isLoading: false,
   is24Hours: true,
   isError: false,

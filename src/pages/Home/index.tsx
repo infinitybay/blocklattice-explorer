@@ -53,6 +53,7 @@ const HomePage = () => {
   const {
     marketCapRank,
     marketCapRank24h,
+    marketCapRankCMC,
     marketCap,
     marketCapChangePercentage24h,
     volume24h,
@@ -78,38 +79,38 @@ const HomePage = () => {
   const btcTransactionFees24h =
     marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_24H] && btcCurrentPrice
       ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_24H])
-          .times(btcCurrentPrice)
-          .toFixed(CurrencyDecimal?.[fiat])
+        .times(btcCurrentPrice)
+        .toFixed(CurrencyDecimal?.[fiat])
       : 0;
 
   const btcTransactionFees7d =
     marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_7D] && btcCurrentPrice
       ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_7D])
-          .times(btcCurrentPrice)
-          .toFixed(CurrencyDecimal?.[fiat])
+        .times(btcCurrentPrice)
+        .toFixed(CurrencyDecimal?.[fiat])
       : 0;
 
   const btcTransactionFees14d =
     marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D] && btcCurrentPrice
       ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D])
-          .times(btcCurrentPrice)
-          .toFixed(CurrencyDecimal?.[fiat])
+        .times(btcCurrentPrice)
+        .toFixed(CurrencyDecimal?.[fiat])
       : 0;
 
   const btcTransactionFeesChange24h = btcTransactionFees24h
     ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_24H])
-        .minus(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_48H])
-        .dividedBy(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_48H])
-        .times(100)
-        .toNumber()
+      .minus(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_48H])
+      .dividedBy(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_48H])
+      .times(100)
+      .toNumber()
     : 0;
 
   const btcTransactionFeesChange14d = btcTransactionFees14d
     ? new BigNumber(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_7D])
-        .minus(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D])
-        .dividedBy(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D])
-        .times(100)
-        .toNumber()
+      .minus(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D])
+      .dividedBy(marketStatistics[BITCOIN_TOTAL_TRANSACTION_FEES_14D])
+      .times(100)
+      .toNumber()
     : 0;
   let onChainVolume48hAgo = 0;
   let onChainVolumeChange24h = 0;
@@ -214,13 +215,13 @@ const HomePage = () => {
                   isLoading={false}
                   title={t("pages.home.averageTps")}
                   tooltip={
-                        (t("tooltips.averageTps", {
-                          date: "25-05-12 07:42",
-                          block_count: 30000,
-                          block_type: "send",
-                          bps: new BigNumber(400).toFixed(2),
-                          cps_p90: new BigNumber(175).toFixed(2),
-                        }) as string)
+                    (t("tooltips.averageTps", {
+                      date: "25-05-12 07:42",
+                      block_count: 30000,
+                      block_type: "send",
+                      bps: new BigNumber(400).toFixed(2),
+                      cps_p90: new BigNumber(175).toFixed(2),
+                    }) as string)
                   }
                   value={new BigNumber(175).dividedBy(2).toFixed(2)}
                 />
@@ -346,16 +347,16 @@ const HomePage = () => {
               <Col xs={24}>
                 <LoadingStatistic
                   isLoading={
-                    !marketCapRank || isMarketStatisticsInitialLoading || isMarketStatisticsError
+                    !marketCapRankCMC || isMarketStatisticsInitialLoading || isMarketStatisticsError
                   }
                   title={t("pages.home.marketCapRank")}
                   prefix="#"
                   suffix={
                     marketCapRank24h ? (
-                      <StatisticsChange value={marketCapRank24h - marketCapRank} isNumber />
+                      <StatisticsChange value={marketCapRank24h - marketCapRankCMC} isNumber />
                     ) : null
                   }
-                  value={`${marketCapRank}`}
+                  value={`${marketCapRankCMC}`}
                 />
 
                 <LoadingStatistic
