@@ -52,10 +52,13 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
           .limit(1)
           .toArray()
           .then(([{ value } = {}]) => {
-            nodeCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1h);
+            console.log(`Update cached market cap rank 24h to ${value}`);
+            nodeCache.set(MARKET_CAP_RANK_24H, value, EXPIRE_1M);
             resolve(value);
           });
       } catch (err) {
+        console.log("Error: Could not update cached market cap rank 24h");
+        console.log(JSON.stringify(err));
         Sentry.captureException(err);
         resolve();
       }
@@ -77,10 +80,13 @@ const getCoingeckoStats = async ({ fiat, cryptocurrency }) => {
           .collection(MARKET_CAP_RANK_COLLECTION)
           .findOne({}, { sort: { createdAt: -1 } })
           .then(({ value } = {}) => {
+            console.log(`Update cached market cap rank cmc to ${value}`);
             nodeCache.set(MARKET_CAP_RANK_CMC, value, EXPIRE_1M);
             resolve(value);
           });
       } catch (err) {
+        console.log("Error: Could not update cached market cap rank cmc");
+        console.log(JSON.stringify(err));
         Sentry.captureException(err);
         resolve();
       }
