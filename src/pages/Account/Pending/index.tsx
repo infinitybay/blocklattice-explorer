@@ -16,7 +16,7 @@ import TransactionsTable from "pages/Account/Transactions";
 
 import type { Subtype, Transaction } from "types/transaction";
 
-const MAX_PENDING_TRANSACTIONS = 50;
+const MAX_PENDING_TRANSACTIONS = 1000;
 const TRANSACTIONS_PER_PAGE = 5;
 const { Title } = Typography;
 
@@ -125,7 +125,7 @@ const AccountPendingHistory: React.FC<Props> = ({
         }}
       >
         <Title level={3}>
-          {count} {t(`pages.account.pendingTransaction${count !== 1 ? "s" : ""}`)}
+          {count}{count >= MAX_PENDING_TRANSACTIONS ? `+` : null} {t(`pages.account.pendingTransaction${count !== 1 ? "s" : ""}`)}
         </Title>
 
         <Tooltip placement="right" title={t("tooltips.pendingTransaction")}>
