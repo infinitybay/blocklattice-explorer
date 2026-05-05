@@ -26,10 +26,7 @@ const useKnownAccountsBalance = (): Return => {
     setIsLoading(true);
 
     try {
-      const res = await fetch("/api/known-accounts-balance");
-      const json = await res.json();
-
-      !json || json.error ? setIsError(true) : setKnownAccountsBalance(json);
+      setIsError(true);
     } catch (err) {
       setIsError(true);
     }

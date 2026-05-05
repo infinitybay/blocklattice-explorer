@@ -69,10 +69,6 @@ const AppHeader: React.FC = () => {
                   {t("menu.developerFund")}
                   <Link to="/developer-fund" />
                 </Menu.Item>
-                <Menu.Item key="known-accounts">
-                  {t("menu.knownAccounts")}
-                  <Link to="/known-accounts" />
-                </Menu.Item>
                 <Menu.Item key="large-transactions">
                   {t("menu.largeTransactions")}
                   <Link to="/large-transactions" />
