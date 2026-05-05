@@ -32,60 +32,60 @@ const doKnownAccountsCron = async () => {
 const doKnownAccountsBalanceCron = async () => {
   let knownAccountsBalance = [];
 
-  try {
-    const knownAccounts = await (nodeCache.get(KNOWN_ACCOUNTS) || doKnownAccountsCron());
-
-    let accounts = knownAccounts.flatMap(({ account }) => [account]);
-
-    let ignoredKnownAccountBalances = nodeCache.get(`${KNOWN_ACCOUNTS_BALANCE}_IGNORED`) || [];
-
-    // Remove accounts with balance lower than Ӿ1 for 48h
-    if (ignoredKnownAccountBalances.length) {
-      accounts = accounts.filter(account => !ignoredKnownAccountBalances.includes(account));
-    }
-
-    const { balances } =
-      (await rpc("accounts_balances", {
-        accounts,
-      })) || {};
-
-    knownAccountsBalance = balances
-      ? knownAccounts
-          .map(({ account, alias }) => ({
-            account,
-            alias,
-            balance: balances[account]
-              ? rawToRai(new BigNumber(balances[account].balance || 0))
-              : 0,
-            pending: balances[account]
-              ? rawToRai(new BigNumber(balances[account].pending || 0))
-              : 0,
-            total: balances[account]
-              ? rawToRai(
-                  new BigNumber(balances[account].balance || 0).plus(
-                    balances[account].pending || 0,
-                  ),
-                )
-              : 0,
-          }))
-          .filter(({ alias }) => !!alias)
-      : [];
-
-    ignoredKnownAccountBalances = knownAccountsBalance
-      .filter(({ total }) => total < 1)
-      .flatMap(({ account }) => [account]);
-
-    nodeCache.set(
-      `${KNOWN_ACCOUNTS_BALANCE}_IGNORED`,
-      ignoredKnownAccountBalances || [],
-      EXPIRE_48H,
-    );
-
-    nodeCache.set(KNOWN_ACCOUNTS_BALANCE, knownAccountsBalance);
-  } catch (err) {
-    console.log("Error", err);
-    Sentry.captureException(err);
-  }
+//  try {
+//    const knownAccounts = await (nodeCache.get(KNOWN_ACCOUNTS) || doKnownAccountsCron());
+//
+//    let accounts = knownAccounts.flatMap(({ account }) => [account]);
+//
+//    let ignoredKnownAccountBalances = nodeCache.get(`${KNOWN_ACCOUNTS_BALANCE}_IGNORED`) || [];
+//
+//    // Remove accounts with balance lower than Ӿ1 for 48h
+//    if (ignoredKnownAccountBalances.length) {
+//      accounts = accounts.filter(account => !ignoredKnownAccountBalances.includes(account));
+//    }
+//
+//    const { balances } =
+//      (await rpc("accounts_balances", {
+//        accounts,
+//      })) || {};
+//
+//    knownAccountsBalance = balances
+//      ? knownAccounts
+//          .map(({ account, alias }) => ({
+//            account,
+//            alias,
+//            balance: balances[account]
+//              ? rawToRai(new BigNumber(balances[account].balance || 0))
+//              : 0,
+//            pending: balances[account]
+//              ? rawToRai(new BigNumber(balances[account].pending || 0))
+//              : 0,
+//            total: balances[account]
+//              ? rawToRai(
+//                  new BigNumber(balances[account].balance || 0).plus(
+//                    balances[account].pending || 0,
+//                  ),
+//                )
+//              : 0,
+//          }))
+//         .filter(({ alias }) => !!alias)
+//     : [];
+//
+//   ignoredKnownAccountBalances = knownAccountsBalance
+//     .filter(({ total }) => total < 1)
+//     .flatMap(({ account }) => [account]);
+//
+//   nodeCache.set(
+//     `${KNOWN_ACCOUNTS_BALANCE}_IGNORED`,
+//     ignoredKnownAccountBalances || [],
+//     EXPIRE_48H,
+//   );
+//
+//   nodeCache.set(KNOWN_ACCOUNTS_BALANCE, knownAccountsBalance);
+// } catch (err) {
+//   console.log("Error", err);
+//   Sentry.captureException(err);
+// }
 
   return knownAccountsBalance;
 };
@@ -100,15 +100,15 @@ cron.schedule("*/5 * * * *", async () => {
 
 // At every 15th minute.
 // https://crontab.guru/#*/15_*_*_*_*
-cron.schedule("*/15 * * * *", async () => {
-  if (process.env.NODE_ENV !== "production") return;
-
-  doKnownAccountsBalanceCron();
-});
+//cron.schedule("*/15 * * * *", async () => {
+// if (process.env.NODE_ENV !== "production") return;
+//
+//  doKnownAccountsBalanceCron();
+//});
 
 if (process.env.NODE_ENV === "production") {
   setImmediate(async () => {
-    await doKnownAccountsBalanceCron();
+    //await doKnownAccountsBalanceCron();
     doDelegatedEntitiesCron();
   });
 }
