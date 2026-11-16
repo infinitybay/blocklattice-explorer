@@ -67,15 +67,22 @@ const Search = ({ isHome = false }) => {
           addSearchHistory(account);
           navigate(`/account/${account}`);
         } else {
-          const filteredKnownAccounts = knownAccounts
-            .filter(({ alias }) => alias.toLowerCase().includes(value.toLowerCase()))
-            .map(item => renderItem(item));
+          const filteredKnownAccounts = knownAccounts.filter(({ alias }) =>
+            alias.toLowerCase().includes(value.toLowerCase()),
+          );
 
-          const filteredAccountBookmarks = accountBookmarks
-            .filter(({ alias }) => alias.toLowerCase().includes(value.toLowerCase()))
-            .map(item => renderItem(item as KnownAccount));
+          const filteredAccountBookmarks = accountBookmarks.filter(({ alias }) =>
+            alias.toLowerCase().includes(value.toLowerCase()),
+          );
 
-          setFilteredResults(filteredAccountBookmarks.concat(filteredKnownAccounts));
+          setFilteredResults(
+            filteredAccountBookmarks
+              .concat(filteredKnownAccounts)
+              .sort((a, b) =>
+                a.alias.localeCompare(b.alias, undefined, { sensitivity: "base", numeric: true }),
+              )
+              .map(item => renderItem(item as KnownAccount)),
+          );
         }
       }
     },
